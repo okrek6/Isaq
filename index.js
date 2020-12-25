@@ -1,6 +1,15 @@
 // require the discord.js module
 const Discord = require('discord.js');
 
+const DISCORD_TOKEN = process.env.DISCORD_TOKEN || ""
+
+if ( DISCORD_TOKEN == "" ) {
+    console.log("You are a dumbass and forgot to set your discord token as an environment variable... exiting.");
+    process.exit(1);
+} else {
+    console.log(DISCORD_TOKEN);
+}
+
 // create a new Discord client
 const client = new Discord.Client();
 
@@ -21,4 +30,4 @@ client.on('message', message => {
 });
 
 // login to Discord with your app's token
-client.login('NzkxOTQ0MzcxMjgwODA1OTI4.X-Whqw.PdgMOkflLRTg0H6j_mh4Wvt_w5g');
+client.login(DISCORD_TOKEN);
